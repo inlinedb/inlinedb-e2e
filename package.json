@@ -10,5 +10,10 @@
   "license": "MIT",
   "dependencies": {
     "inlinedb": "git+ssh://git@github.com/inlinedb/inlinedb.git#master"
+  },
+  "devDependencies": {
+    "rimraf": "2.6.1",
+    "chalk": "1.1.3",
+    "eslint": "3.19.0"
   }
 }
