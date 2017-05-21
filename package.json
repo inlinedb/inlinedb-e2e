@@ -3,7 +3,8 @@
   "private": true,
   "description": "An end to end testing for inlinedb",
   "scripts": {
-    "test": "node index"
+    "eslint": "eslint . --ignore-path .gitignore",
+    "test": "mocha"
   },
   "repository": "inlinedb/inlinedb-e2e",
   "author": "Gopikrishna Sathyamurthy",
@@ -12,8 +13,9 @@
     "inlinedb": "git+ssh://git@github.com/inlinedb/inlinedb.git#master"
   },
   "devDependencies": {
-    "rimraf": "2.6.1",
-    "chalk": "1.1.3",
-    "eslint": "3.19.0"
+    "code": "4.0.0",
+    "eslint": "3.19.0",
+    "mocha": "3.4.1",
+    "rimraf": "2.6.1"
   }
 }

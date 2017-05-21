@@ -1,4 +1,4 @@
 *.log
 .idea
-test
+idb*
 node_modules
