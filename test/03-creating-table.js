@@ -1,13 +1,16 @@
 const InlineDB = require('inlinedb');
 const {expect} = require('code');
 const fs = require('fs');
-const {idbName: name} = require('../util/config');
+const {clean, idbName: name} = require('../util/config');
 
 describe('03 - Creating a new table in database', () => {
 
   const idbName = `${name}-table`;
   const idbFilename = `./${idbName}/.idb`;
   const tableName = 'table-name';
+
+  clean(idbName);
+
   const idb = new InlineDB(idbName);
 
   idb.createTable(tableName);

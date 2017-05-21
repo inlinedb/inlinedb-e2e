@@ -2,7 +2,7 @@ const rimraf = require('rimraf');
 
 const idbName = 'idb';
 const idbFilename = `./${idbName}/.idb`;
-const clean = () => rimraf.sync(`./${idbName}`);
+const clean = (location = idbName) => rimraf.sync(`./${location}`);
 
 module.exports = {
   clean,
