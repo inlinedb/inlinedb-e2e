@@ -29,4 +29,3 @@ run('it should write default configuration', () => {
   });
 
 });
-

@@ -10,7 +10,7 @@ global.run = (description, testFunction) => {
 
     testFunction();
 
-    log('✔', chalk.green(description));
+    log('✔', chalk.yellow(description));
 
   } catch (error) {
 
@@ -24,3 +24,4 @@ global.run = (description, testFunction) => {
 clean();
 
 require('./scripts/01-creating-database');
+require('./scripts/02-opening-database');
