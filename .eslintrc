@@ -3,6 +3,10 @@
     "node": true,
     "mocha": true
   },
+  "globals": {
+    "given": true,
+    "run": true
+  },
   "parserOptions": {
     "sourceType": "module"
   },
