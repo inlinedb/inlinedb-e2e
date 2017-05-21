@@ -4,10 +4,10 @@ const InlineDB = require('inlinedb');
 const assert = require('assert');
 const fs = require('fs');
 
-const dbName = 'test';
-const filename = `./${dbName}/.idb`;
+const idbName = 'test';
+const filename = `./${idbName}/.idb`;
 
-new InlineDB(dbName);
+new InlineDB(idbName);
 
 run('it should create idb config file', () => {
 
@@ -22,7 +22,7 @@ run('it should write default configuration', () => {
     assert(!err, err);
 
     const expectedConfig = {
-      dbName,
+      idbName,
       tables: []
     };
 

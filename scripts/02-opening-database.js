@@ -3,13 +3,13 @@ given('when opening an existing database');
 const InlineDB = require('inlinedb');
 const assert = require('assert');
 
-const dbName = 'test';
-const idb = new InlineDB(dbName);
+const idbName = 'test';
+const idb = new InlineDB(idbName);
 
 run('it should read the configuration', () => {
 
   const expectedConfig = {
-    dbName,
+    idbName,
     tables: []
   };
 
