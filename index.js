@@ -4,18 +4,19 @@ const rimraf = require('rimraf');
 const clean = () => rimraf.sync('./test');
 const log = (...args) => console.log(...args); // eslint-disable-line no-console
 
+global.given = title => log('\n', chalk.bold.blue(title));
 global.run = (description, testFunction) => {
 
   try {
 
     testFunction();
 
-    log('✔', chalk.yellow(description));
+    log('\t✔', chalk.green(description));
 
   } catch (error) {
 
-    log('✖', chalk.red(description));
-    log('\n\t', chalk.red(error), '\n');
+    log('\t✖', chalk.red(description));
+    log('\n\t\t', chalk.red(error), '\n');
 
   }
 

@@ -1,3 +1,5 @@
+given('when opening an existing database');
+
 const InlineDB = require('inlinedb');
 const assert = require('assert');
 

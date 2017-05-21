@@ -1,3 +1,5 @@
+given('when creating a new database');
+
 const InlineDB = require('inlinedb');
 const assert = require('assert');
 const fs = require('fs');
