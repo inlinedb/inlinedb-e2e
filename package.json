@@ -2,11 +2,13 @@
   "name": "inlinedb-e2e",
   "private": true,
   "description": "An end to end testing for inlinedb",
-  "main": "index.js",
   "scripts": {
     "test": "node index"
   },
   "repository": "inlinedb/inlinedb-e2e",
   "author": "Gopikrishna Sathyamurthy",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "inlinedb": "git+ssh://git@github.com/inlinedb/inlinedb.git#master"
+  }
 }
