@@ -10,7 +10,7 @@
   "author": "Gopikrishna Sathyamurthy",
   "license": "MIT",
   "dependencies": {
-    "inlinedb": "git+ssh://git@github.com/inlinedb/inlinedb.git#master"
+    "inlinedb": "https://github.com/inlinedb/inlinedb.git#master"
   },
   "devDependencies": {
     "code": "4.0.0",
