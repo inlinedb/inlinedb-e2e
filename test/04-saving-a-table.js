@@ -24,6 +24,7 @@ describe('04 - Saving a table', () => {
 
     const expectedData = {
       index: {},
+      lastInsertId: 0,
       rows: []
     };
 
