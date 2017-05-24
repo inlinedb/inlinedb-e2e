@@ -19,9 +19,7 @@ describe('03 - Creating a new table in database', () => {
     const expectedConfig = {
       idbName,
       tables: {
-        [tableName]: {
-          lastInsertId: 0
-        }
+        [tableName]: {}
       }
     };
 
