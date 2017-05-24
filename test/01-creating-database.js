@@ -1,11 +1,14 @@
 const InlineDB = require('inlinedb');
 const {expect} = require('code');
 const fs = require('fs');
-const {clean, idbFilename, idbName} = require('../util/config');
+const {clean} = require('../util/helper');
 
 describe('01 - Creating a new database', () => {
 
   clean();
+
+  const idbName = 'idb';
+  const idbFilename = `./${idbName}/.idb`;
 
   new InlineDB(idbName);
 

@@ -1,14 +1,11 @@
 const InlineDB = require('inlinedb');
 const {expect} = require('code');
 const fs = require('fs');
-const {
-  idbName: name,
-  tableName
-} = require('../util/config');
 
 describe('04 - Saving a table', () => {
 
-  const idbName = `${name}-table`;
+  const idbName = 'idb-table';
+  const tableName = 'table-name';
   const tableFilename = `./${idbName}/${tableName}.table`;
 
   const idb = new InlineDB(idbName);
