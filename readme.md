@@ -9,3 +9,7 @@
 <p align="center">
     A series of scripts to test inlinedb end to end
 </p>
+
+<p align="center">
+    <a href="https://travis-ci.org/inlinedb/inlinedb"><img src="https://travis-ci.org/inlinedb/inlinedb.svg?branch=master"></a>
+</p>
