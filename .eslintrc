@@ -1,8 +1,7 @@
 {
   "env": {
     "es6": true,
-    "node": true,
-    "mocha": true
+    "node": true
   },
   "parser": "babel-eslint",
   "parserOptions": {
@@ -11,7 +10,8 @@
   },
   "globals": {
     "given": true,
-    "run": true
+    "it": true,
+    "when": true
   },
   "rules": {
     "camelcase": 2,
