@@ -2,6 +2,7 @@ const InlineDB = require('inlinedb');
 const {expect} = require('code');
 
 const {idbName, tableName, tableFilename} = require('../util/config');
+const {generateRows} = require('../util/rows.js');
 const {readFile} = require('../util/file');
 
 let idb,
@@ -47,21 +48,11 @@ module.exports = () =>
           3: 2
         },
         lastInsertId: 3,
-        rows: [
-          {
-            $idbID: 1,
-            column: 'column awesome'
-          },
-          {
-            $idbID: 2,
-            column: 'column match'
-          },
-          {
-            $idbID: 3,
-            column: 'column random'
-          }
-        ]
-
+        rows: generateRows(
+          'column awesome',
+          'column match',
+          'column random'
+        )
       };
 
       await table.save();

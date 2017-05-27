@@ -2,6 +2,7 @@ const InlineDB = require('inlinedb');
 const {expect} = require('code');
 
 const {idbName, tableName} = require('../util/config');
+const {generateRow, generateRows} = require('../util/rows.js');
 
 let idb,
   table;
@@ -18,20 +19,11 @@ module.exports = () =>
 
     .then(it('should return all the rows when there is no filter', async () => {
 
-      const expectedRows = [
-        {
-          $idbID: 1,
-          column: 'column awesome'
-        },
-        {
-          $idbID: 2,
-          column: 'column match'
-        },
-        {
-          $idbID: 3,
-          column: 'column random'
-        }
-      ];
+      const expectedRows = generateRows(
+        'column awesome',
+        'column match',
+        'column random'
+      );
 
       const result = await table.query();
 
@@ -43,12 +35,7 @@ module.exports = () =>
 
       const filterFunction = row => row.column === 'column match';
       const result = await table.query(filterFunction);
-      const expectedRows = [
-        {
-          $idbID: 2,
-          column: 'column match'
-        }
-      ];
+      const expectedRows = [generateRow(2, 'column match')];
 
       expect(result).to.equal(expectedRows);
 
@@ -58,12 +45,7 @@ module.exports = () =>
 
       const id = 1;
       const result = await table.query(id);
-      const expectedRows = [
-        {
-          $idbID: 1,
-          column: 'column awesome'
-        }
-      ];
+      const expectedRows = [generateRow(1, 'column awesome')];
 
       expect(result).to.equal(expectedRows);
 
@@ -75,14 +57,8 @@ module.exports = () =>
       const id2 = 3;
       const result = await table.query([id1, id2]);
       const expectedRows = [
-        {
-          $idbID: 1,
-          column: 'column awesome'
-        },
-        {
-          $idbID: 3,
-          column: 'column random'
-        }
+        generateRow(id1, 'column awesome'),
+        generateRow(id2, 'column random')
       ];
 
       expect(result).to.equal(expectedRows);
