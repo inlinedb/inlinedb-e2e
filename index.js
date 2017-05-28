@@ -13,5 +13,6 @@ executeSteps(
   'insert-rows',
   'query-the-rows',
   'update-rows',
-  'delete-rows'
+  'delete-rows',
+  'revert-queries'
 );
