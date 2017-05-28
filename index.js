@@ -12,5 +12,6 @@ executeSteps(
   'save-the-table',
   'insert-rows',
   'query-the-rows',
-  'update-rows'
+  'update-rows',
+  'delete-rows'
 );
