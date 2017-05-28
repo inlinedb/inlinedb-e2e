@@ -103,8 +103,6 @@ module.exports = () =>
 
     .then(it('should delete the rows with matching ids', async () => {
 
-      const id1 = 6;
-      const id2 = 3;
       const expectedRows = [
         generateRow(ids.four, 'column random'),
         generateRow(ids.seven, 'column awesome')
@@ -113,7 +111,42 @@ module.exports = () =>
       table.insert({
         column: 'column awesome'
       });
-      table.delete([id1, id2]);
+      table.delete([ids.six, ids.three]);
+
+      await table.save();
+
+      const result = await table.query();
+
+      expect(result).to.equal(expectedRows);
+
+    }))
+
+    .then(it('should not delete any when there are no matching ids', async () => {
+
+      const id = 20;
+      const expectedRows = [
+        generateRow(ids.four, 'column random'),
+        generateRow(ids.seven, 'column awesome')
+      ];
+
+      table.delete(id);
+
+      await table.save();
+
+      const result = await table.query();
+
+      expect(result).to.equal(expectedRows);
+
+    }))
+
+    .then(it('should not delete any when the rows are not satisfied by the filter function', async () => {
+
+      const expectedRows = [
+        generateRow(ids.four, 'column random'),
+        generateRow(ids.seven, 'column awesome')
+      ];
+
+      table.delete(row => row.$idbID < ids.four);
 
       await table.save();
 
