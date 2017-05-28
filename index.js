@@ -15,5 +15,6 @@ executeSteps(
   'update-rows',
   'delete-rows',
   'revert-queries',
-  'delete-a-table'
+  'delete-a-table',
+  'drop-database'
 );
