@@ -19,9 +19,6 @@ module.exports = () =>
       table.insert({
         column: 'column insert'
       });
-      table.update(
-        () => Object.assign({column: 'column'})
-      );
 
     }))
 
@@ -55,6 +52,10 @@ module.exports = () =>
         'column',
         'column',
         'column'
+      );
+
+      table.update(
+        () => Object.assign({column: 'column'})
       );
 
       await table.save();
@@ -110,7 +111,7 @@ module.exports = () =>
 
     }))
 
-    .then(it('should return the rows with matching ids', async () => {
+    .then(it('should update the rows with matching ids', async () => {
 
       const id1 = 3;
       const id2 = 4;
