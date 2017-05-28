@@ -135,6 +135,51 @@ module.exports = () =>
 
     }))
 
+    .then(it('should not update any when there are no matching ids', async () => {
+
+      const id = 20;
+      const expectedRows = generateRows(
+        'column match',
+        'column',
+        'column random',
+        'column random'
+      );
+
+      table.update(
+        () => ({column: 'column should not update'}),
+        id
+      );
+
+      await table.save();
+
+      const result = await table.query();
+
+      expect(result).to.equal(expectedRows);
+
+    }))
+
+    .then(it('should not update any when the rows are not satisfied by the filter function', async () => {
+
+      const expectedRows = generateRows(
+        'column match',
+        'column',
+        'column random',
+        'column random'
+      );
+
+      table.update(
+        () => ({column: 'column should not update'}),
+        row => /awesome$/.test(row.column)
+      );
+
+      await table.save();
+
+      const result = await table.query();
+
+      expect(result).to.equal(expectedRows);
+
+    }))
+
     .then(it('should have written all the changes into the table', async () => {
 
       const expectedData = {
