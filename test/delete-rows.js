@@ -16,7 +16,7 @@ let idb,
   table;
 
 module.exports = () =>
-  when('deleting rows in the table')
+  when('deleting rows from the table')
 
     .then(given(() => {
 
@@ -82,7 +82,7 @@ module.exports = () =>
 
     }))
 
-    .then(it('should update the row with matching id', async () => {
+    .then(it('should delete the row with matching id', async () => {
 
       const id = 5;
       const expectedRows = [
