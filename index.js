@@ -9,6 +9,7 @@ executeSteps(
   'validate-database',
   'create-database',
   'open-database',
+  'validate-table',
   'create-a-table',
   'save-the-table',
   'insert-rows',
