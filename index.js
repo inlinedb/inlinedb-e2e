@@ -6,6 +6,7 @@ rimraf.sync(idbName);
 const {executeSteps} = require('./util/test-runner');
 
 executeSteps(
+  'validate-database',
   'create-database',
   'open-database',
   'create-a-table',
