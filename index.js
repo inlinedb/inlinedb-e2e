@@ -15,6 +15,7 @@ executeSteps(
   'validate-insert-rows',
   'insert-rows',
   'query-the-rows',
+  'validate-update-rows',
   'update-rows',
   'delete-rows',
   'revert-queries',
