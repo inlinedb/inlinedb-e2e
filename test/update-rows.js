@@ -14,11 +14,9 @@ module.exports = () =>
     .then(given(() => {
 
       idb = new InlineDB(idbName);
-      table = idb.createTable(tableName);
-
-      table.insert({
-        column: 'column insert'
-      });
+      table = idb
+        .createTable(tableName)
+        .insert({column: 'column insert'});
 
     }))
 
@@ -54,11 +52,9 @@ module.exports = () =>
         'column'
       );
 
-      table.update(
-        () => Object.assign({column: 'column'})
-      );
-
-      await table.save();
+      await table
+        .update(() => Object.assign({column: 'column'}))
+        .save();
 
       const result = await table.query();
 
@@ -76,12 +72,12 @@ module.exports = () =>
         'column'
       );
 
-      table.update(
-        () => ({column: 'column awesome'}),
-        id
-      );
-
-      await table.save();
+      await table
+        .update(
+          () => ({column: 'column awesome'}),
+          id
+        )
+        .save();
 
       const result = await table.query();
 
@@ -98,12 +94,12 @@ module.exports = () =>
         'column'
       );
 
-      table.update(
-        () => ({column: 'column match'}),
-        row => row.column === 'column awesome'
-      );
-
-      await table.save();
+      await table
+        .update(
+          () => ({column: 'column match'}),
+          row => row.column === 'column awesome'
+        )
+        .save();
 
       const result = await table.query();
 
@@ -122,12 +118,12 @@ module.exports = () =>
         'column random'
       );
 
-      table.update(
-        () => ({column: 'column random'}),
-        [id1, id2]
-      );
-
-      await table.save();
+      await table
+        .update(
+          () => ({column: 'column random'}),
+          [id1, id2]
+        )
+        .save();
 
       const result = await table.query();
 
@@ -145,12 +141,12 @@ module.exports = () =>
         'column random'
       );
 
-      table.update(
-        () => ({column: 'column should not update'}),
-        id
-      );
-
-      await table.save();
+      await table
+        .update(
+          () => ({column: 'column should not update'}),
+          id
+        )
+        .save();
 
       const result = await table.query();
 
@@ -167,12 +163,12 @@ module.exports = () =>
         'column random'
       );
 
-      table.update(
-        () => ({column: 'column should not update'}),
-        row => /awesome$/.test(row.column)
-      );
-
-      await table.save();
+      await table
+        .update(
+          () => ({column: 'column should not update'}),
+          row => /awesome$/.test(row.column)
+        )
+        .save();
 
       const result = await table.query();
 

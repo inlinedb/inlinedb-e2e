@@ -7,13 +7,10 @@ const {readFile} = require('../util/file');
 module.exports = () =>
   when('creating a new table in the database')
 
-    .then(given(() => {
-
-      const idb = new InlineDB(idbName);
-
-      idb.createTable(tableName);
-
-    }))
+    .then(given(() =>
+      new InlineDB(idbName)
+        .createTable(tableName)
+    ))
 
     .then(it('should add the table name to idb', async () => {
 

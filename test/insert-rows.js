@@ -14,13 +14,13 @@ module.exports = () =>
     .then(given(() => {
 
       idb = new InlineDB(idbName);
-      table = idb.createTable(tableName);
-
-      table.insert(
-        {column: 'column awesome'},
-        {column: 'column match'},
-        {column: 'column random'}
-      );
+      table = idb
+        .createTable(tableName)
+        .insert(
+          {column: 'column awesome'},
+          {column: 'column match'},
+          {column: 'column random'}
+        );
 
     }))
 

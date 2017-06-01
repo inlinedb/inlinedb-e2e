@@ -13,17 +13,17 @@ module.exports = () =>
     .then(given(() => {
 
       idb = new InlineDB(idbName);
-      table = idb.createTable(tableName);
-
-      table.insert(
-        {column: 'column insert 1'},
-        {column: 'column insert 2'}
-      );
-      table.update(
-        () => ({column: 'column update'}),
-        row => /insert 1$/.test(row)
-      );
-      table.delete(row => /insert 2$/.test(row));
+      table = idb
+        .createTable(tableName)
+        .insert(
+          {column: 'column insert 1'},
+          {column: 'column insert 2'}
+        )
+        .update(
+          () => ({column: 'column update'}),
+          row => /insert 1$/.test(row)
+        )
+        .delete(row => /insert 2$/.test(row));
 
     }))
 
@@ -50,9 +50,9 @@ module.exports = () =>
         rows: []
       };
 
-      table.revert();
-
-      await table.save();
+      await table
+        .revert()
+        .save();
 
       const {err, data} = await readFile(tableFilename);
 

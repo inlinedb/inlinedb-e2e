@@ -21,20 +21,16 @@ module.exports = () =>
     .then(given(() => {
 
       idb = new InlineDB(idbName);
-      table = idb.createTable(tableName);
-
-      table.update(
-        () => Object.assign({column: 'column awesome'}),
-        row => row.$idbID <= 2
-      );
-      table.insert(
-        {
-          column: 'column insert 1'
-        },
-        {
-          column: 'column insert 2'
-        }
-      );
+      table = idb
+        .createTable(tableName)
+        .update(
+          () => Object.assign({column: 'column awesome'}),
+          row => row.$idbID <= 2
+        )
+        .insert(
+          {column: 'column insert 1'},
+          {column: 'column insert 2'}
+        );
 
     }))
 
@@ -72,9 +68,9 @@ module.exports = () =>
         generateRow(ids.six, 'column insert 2')
       ];
 
-      table.delete(row => /awesome$/.test(row.column));
-
-      await table.save();
+      await table
+        .delete(row => /awesome$/.test(row.column))
+        .save();
 
       const result = await table.query();
 
@@ -91,9 +87,9 @@ module.exports = () =>
         generateRow(ids.six, 'column insert 2')
       ];
 
-      table.delete(id);
-
-      await table.save();
+      await table
+        .delete(id)
+        .save();
 
       const result = await table.query();
 
@@ -108,12 +104,12 @@ module.exports = () =>
         generateRow(ids.seven, 'column awesome')
       ];
 
-      table.insert({
-        column: 'column awesome'
-      });
-      table.delete([ids.six, ids.three]);
-
-      await table.save();
+      await table
+        .insert({
+          column: 'column awesome'
+        })
+        .delete([ids.six, ids.three])
+        .save();
 
       const result = await table.query();
 
@@ -129,9 +125,9 @@ module.exports = () =>
         generateRow(ids.seven, 'column awesome')
       ];
 
-      table.delete(id);
-
-      await table.save();
+      await table
+        .delete(id)
+        .save();
 
       const result = await table.query();
 
@@ -146,9 +142,9 @@ module.exports = () =>
         generateRow(ids.seven, 'column awesome')
       ];
 
-      table.delete(row => row.$idbID < ids.four);
-
-      await table.save();
+      await table
+        .delete(row => row.$idbID < ids.four)
+        .save();
 
       const result = await table.query();
 
@@ -160,9 +156,9 @@ module.exports = () =>
 
       const expectedRows = [];
 
-      table.delete();
-
-      await table.save();
+      await table
+        .delete()
+        .save();
 
       const result = await table.query();
 
