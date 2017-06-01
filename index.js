@@ -12,6 +12,7 @@ executeSteps(
   'validate-table',
   'create-a-table',
   'save-the-table',
+  'validate-insert-rows',
   'insert-rows',
   'query-the-rows',
   'update-rows',
