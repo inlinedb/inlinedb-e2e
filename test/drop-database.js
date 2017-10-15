@@ -18,7 +18,7 @@ module.exports = () =>
 
     }))
 
-    .then(it('should remove the database from system on drop', async () => {
+    .then(it('should remove the database from system on drop', () => {
 
       idb.drop();
 

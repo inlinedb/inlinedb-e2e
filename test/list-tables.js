@@ -37,7 +37,7 @@ module.exports = () =>
 
     }))
 
-    .then(it('should return an array of table names', async () => {
+    .then(it('should return an array of table names', () => {
 
       const expectedTables = [
         'table-1',

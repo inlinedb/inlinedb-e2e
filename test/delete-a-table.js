@@ -33,7 +33,7 @@ module.exports = () =>
 
     }))
 
-    .then(it('should delete the table from system', async () => {
+    .then(it('should delete the table from system', () => {
 
       idb.dropTable(tableName);
 
