@@ -16,7 +16,8 @@
     "babel-eslint": "8.0.1",
     "chalk": "2.1.0",
     "code": "5.1.0",
-    "eslint": "4.8.0",
+    "eslint": "4.9.0",
+    "eslint-config-inlinedb": "github:inlinedb/eslint-config-inlinedb#master",
     "rimraf": "2.6.2"
   }
 }
