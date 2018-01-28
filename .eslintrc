@@ -9,5 +9,5 @@
     "it": true,
     "when": true
   },
-  "extends": "inlinedb"
+  "extends": "@inlinedb/inlinedb"
 }
